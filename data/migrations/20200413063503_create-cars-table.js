@@ -6,10 +6,10 @@ exports.up = function(knex) {
         tbl.text('model', 128).notNullable();
         tbl.integer('mileage').notNullable();
         tbl.enu('transmission', ['AT', 'MT', 'CVT']);
-        tbl.enu('title', ['Clean', 'Salvage', 'Rebuilt', 'Junk', 'Dismantled']);
+        tbl.enu('title', ['Clean', 'Salvage', 'Rebuilt', 'Junk']);
     });
 };
 
 exports.down = function(knex) {
-  
+    return knex.schema.dropTableIfExists('cars');
 };
